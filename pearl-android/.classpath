@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/pearl"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="lib" path="/pearl/libs/gdx.jar" sourcepath="/pearl/libs/gdx-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/gdx-backend-android.jar" sourcepath="libs/gdx-backend-android-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="/pearl/libs/bodyeditor-loader.jar" sourcepath="/pearl/libs/bodyeditor-loader-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="/pearl/libs/tween-engine-api.jar" sourcepath="/pearl/libs/tween-engine-api-sources.jar"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="lib" path="/home/pearl/Development/Setup/android-sdk/platforms/android-19/android.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

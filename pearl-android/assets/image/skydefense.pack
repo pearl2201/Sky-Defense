@@ -1,0 +1,215 @@
+
+skydefense.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+city_dark
+  rotate: false
+  xy: 1, 848
+  size: 540, 170
+  orig: 540, 170
+  offset: 0, 0
+  index: -1
+city_light
+  rotate: false
+  xy: 1, 696
+  size: 479, 150
+  orig: 479, 150
+  offset: 0, 0
+  index: -1
+shockwave
+  rotate: false
+  xy: 1, 438
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+skydefease
+  rotate: false
+  xy: 543, 872
+  size: 355, 146
+  orig: 355, 146
+  offset: 0, 0
+  index: -1
+halo
+  rotate: false
+  xy: 1, 188
+  size: 235, 248
+  orig: 235, 248
+  offset: 0, 0
+  index: -1
+bomb8
+  rotate: false
+  xy: 900, 870
+  size: 123, 148
+  orig: 123, 148
+  offset: 0, 0
+  index: -1
+GameOver
+  rotate: false
+  xy: 1, 84
+  size: 227, 102
+  orig: 227, 102
+  offset: 0, 0
+  index: -1
+trees
+  rotate: false
+  xy: 1, 1
+  size: 271, 81
+  orig: 271, 81
+  offset: 0, 0
+  index: -1
+bomb6
+  rotate: false
+  xy: 259, 533
+  size: 135, 161
+  orig: 135, 161
+  offset: 0, 0
+  index: -1
+bomb7
+  rotate: false
+  xy: 396, 536
+  size: 116, 158
+  orig: 116, 158
+  offset: 0, 0
+  index: -1
+try_again
+  rotate: false
+  xy: 543, 847
+  size: 214, 23
+  orig: 214, 23
+  offset: 0, 0
+  index: -1
+cloud
+  rotate: false
+  xy: 259, 437
+  size: 165, 94
+  orig: 165, 94
+  offset: 0, 0
+  index: -1
+bomb5
+  rotate: false
+  xy: 238, 298
+  size: 127, 137
+  orig: 127, 137
+  offset: 0, 0
+  index: -1
+bomb
+  rotate: false
+  xy: 238, 178
+  size: 128, 118
+  orig: 128, 118
+  offset: 0, 0
+  index: -1
+bomb9
+  rotate: false
+  xy: 482, 724
+  size: 134, 121
+  orig: 134, 121
+  offset: 0, 0
+  index: -1
+bomb4
+  rotate: false
+  xy: 618, 715
+  size: 104, 130
+  orig: 104, 130
+  offset: 0, 0
+  index: -1
+bomb3
+  rotate: false
+  xy: 367, 309
+  size: 85, 126
+  orig: 85, 126
+  offset: 0, 0
+  index: -1
+bomb2
+  rotate: false
+  xy: 368, 202
+  size: 88, 105
+  orig: 88, 105
+  offset: 0, 0
+  index: -1
+explosion_small4
+  rotate: false
+  xy: 514, 621
+  size: 101, 101
+  orig: 101, 101
+  offset: 0, 0
+  index: -1
+bomb1
+  rotate: false
+  xy: 514, 538
+  size: 76, 81
+  orig: 76, 81
+  offset: 0, 0
+  index: -1
+play
+  rotate: false
+  xy: 759, 842
+  size: 130, 28
+  orig: 130, 28
+  offset: 0, 0
+  index: -1
+health_icon
+  rotate: false
+  xy: 617, 634
+  size: 75, 79
+  orig: 75, 79
+  offset: 0, 0
+  index: -1
+health
+  rotate: false
+  xy: 426, 448
+  size: 66, 86
+  orig: 66, 86
+  offset: 0, 0
+  index: -1
+explosion_small3
+  rotate: false
+  xy: 230, 102
+  size: 74, 74
+  orig: 74, 74
+  offset: 0, 0
+  index: -1
+explosion_small1
+  rotate: false
+  xy: 306, 106
+  size: 75, 70
+  orig: 75, 70
+  offset: 0, 0
+  index: -1
+explosion_small2
+  rotate: false
+  xy: 383, 137
+  size: 64, 63
+  orig: 64, 63
+  offset: 0, 0
+  index: -1
+sparkle
+  rotate: false
+  xy: 383, 72
+  size: 64, 63
+  orig: 64, 63
+  offset: 0, 0
+  index: -1
+explosion_small5
+  rotate: false
+  xy: 694, 659
+  size: 52, 54
+  orig: 52, 54
+  offset: 0, 0
+  index: -1
+explosion_small6
+  rotate: false
+  xy: 454, 407
+  size: 39, 39
+  orig: 39, 39
+  offset: 0, 0
+  index: -1
+meteor
+  rotate: false
+  xy: 454, 369
+  size: 36, 36
+  orig: 36, 36
+  offset: 0, 0
+  index: -1
