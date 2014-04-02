@@ -5,7 +5,7 @@ Simple game libgdx.
 
 To play. you only click, click, click :D
 
-![ScreenShot1](https://github.com/pearl2201/Sky-Defense/blob/master/ScreenShot/1.png)
+![ScreenShot1](https://raw.githubusercontent.com/pearl2201/Sky-Defense/master/ScreenShot/1.png)
 
 Idea and Resouces, which I get from cocos2d-x example.
 
