@@ -1,9 +1,8 @@
 package com.pearl.main.game.objects;
 
-import com.badlogic.gdx.Gdx;
+
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.pearl.main.game.Assets;
 
@@ -30,7 +29,6 @@ public class Shockwave extends AbstractGameObject{
 		// TODO Auto-generated method stub
 		shockwaveSprite = new Sprite(Assets.instance.shockwave.shockwave);
 		shockwaveSprite.setSize(0.8f*shockwaveSprite.getWidth(), 0.8f*shockwaveSprite.getHeight());
-		Rectangle bound = shockwaveSprite.getBoundingRectangle();
 		growing= false;
 		finish = false;
 		
@@ -85,7 +83,6 @@ public class Shockwave extends AbstractGameObject{
 		finish = false;
 		dimension.set(shockwaveSprite.getWidth()*scale,shockwaveSprite.getHeight()* scale);
 		this.position.set(position);
-		Gdx.app.log("Shockwave", this.position.toString());
 		
 		
 	}

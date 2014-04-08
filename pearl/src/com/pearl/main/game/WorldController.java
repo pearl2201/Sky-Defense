@@ -51,8 +51,11 @@ public class WorldController implements Disposable, InputProcessor {
 		explosions = new Array<Explosion>();
 		destroyes = new Array<MeteorDestroy>();
 		meteors = new Array<Meteor>();
-		healths = new Array<Health>(); 
+		healths = new Array<Health>();
 		player = Player.getInstance();
+		
+		
+		//init value
 		player.reset();
 		meteors_duration = 20f;
 		meteors_timer = 15;
@@ -67,10 +70,19 @@ public class WorldController implements Disposable, InputProcessor {
 		clouds.update(deltaTime);
 		bomb.update(deltaTime);
 		shockwave.update(deltaTime);
-		
+
+		checkMeteorUpdate(deltaTime);
+		checkHealthUpdate(deltaTime);
 		checkExplosionFinish(deltaTime);
 		checkMeteorRemove(deltaTime);
-		
+
+		checkHealthCollision();
+		checkMeteoShockwaveCollision();
+		checkMeteorDestroyes(deltaTime);
+		checkWinLose();
+	}
+
+	private void checkMeteorUpdate(float deltaTime) {
 		meteors_timer += deltaTime;
 		meteors_duration -= 0.05;
 		if (meteors_duration <= min_meteors_duration) {
@@ -86,45 +98,37 @@ public class WorldController implements Disposable, InputProcessor {
 			meteors_timer = 0;
 			meteors.add(new Meteor(position));
 		}
-		
-		health_timer +=deltaTime;
-		health_duration -=0.05;
-		if (health_duration <= min_health_duration)
-		{
+
+	}
+
+	private void checkHealthUpdate(float deltaTime) {
+		health_timer += deltaTime;
+		health_duration -= 0.05;
+		if (health_duration <= min_health_duration) {
 			health_duration = min_health_duration;
 		}
-		for (int i = 0; i<healths.size; i++)
-		{
+		for (int i = 0; i < healths.size; i++) {
 			healths.get(i).update(deltaTime);
 		}
-		if (health_timer>= health_duration)
-		{
+		if (health_timer >= health_duration) {
 			float x = (float) (Math.random() * Constants.DEFAULT_VIEWPORT_WIDTH);
 			float y = Constants.DEFAULT_VIEWPORT_HEIGHT;
 			Vector2 position = new Vector2(x, y);
-			health_timer =0;
+			health_timer = 0;
 			healths.add(new Health(position));
 			Gdx.app.log("Health", "create health at" + position.toString());
 		}
-		checkHealthCollision();
-		checkMeteoShockwaveCollision();
-		checkMeteorDestroyes(deltaTime);
-		checkWinLose();
 	}
 
 	private void checkMeteorDestroyes(float deltaTime) {
 		// TODO Auto-generated method stub
 		Iterator<MeteorDestroy> iterators = destroyes.iterator();
-		
-		while(iterators.hasNext())
-		{
+
+		while (iterators.hasNext()) {
 			MeteorDestroy iterator = iterators.next();
-			if (iterator.isFinish())
-			{
+			if (iterator.isFinish()) {
 				destroyes.removeValue(iterator, true);
-			}
-			else
-			{
+			} else {
 				iterator.update(deltaTime);
 			}
 		}
@@ -133,22 +137,21 @@ public class WorldController implements Disposable, InputProcessor {
 	private void checkHealthCollision() {
 		// TODO Auto-generated method stub
 		Iterator<Health> iterators = healths.iterator();
-		
-		while (iterators.hasNext())
-		{
+
+		while (iterators.hasNext()) {
 			Health iterator = iterators.next();
-			if ((iterator.getPosition().y + iterator.getDimension().y/2) <= 0)
-			{
+			if ((iterator.getPosition().y + iterator.getDimension().y / 2) <= 0) {
 				healths.removeValue(iterator, true);
-			}
-			else
-			{
-				if (shockwave.isGrowing())
-				{
-					Vector2 d = new Vector2(shockwave.getPosition().x - iterator.getPosition().x, shockwave.getPosition().y- iterator.getPosition().y);
+			} else {
+				if (shockwave.isGrowing()) {
+					// Collision is not correct, it only check the object in
+					// shockwave
+					Vector2 d = new Vector2(shockwave.getPosition().x
+							- iterator.getPosition().x,
+							shockwave.getPosition().y
+									- iterator.getPosition().y);
 					float distance = d.len();
-					if (distance <= shockwave.getDimension().x/2)
-					{
+					if (distance <= shockwave.getDimension().x / 2) {
 						healths.removeValue(iterator, true);
 						player.addHealth();
 						Assets.instance.sounds.health.play();
@@ -160,27 +163,23 @@ public class WorldController implements Disposable, InputProcessor {
 
 	private void checkWinLose() {
 		// TODO Auto-generated method stub
-		if (player.getHealth() <= 0)
-		{
+		if (player.getHealth() <= 0) {
 			game.setScreen(new GameOverScreen(game));
 		}
-		
+
 	}
 
 	private void checkMeteorRemove(float deltaTime) {
 		// TODO Auto-generated method stub
 		Iterator<Meteor> iterators = meteors.iterator();
-		while(iterators.hasNext())
-		{
+		while (iterators.hasNext()) {
 			Meteor iterator = iterators.next();
-			if ((iterator.getPosition().y - iterator.getDimension().y) > Constants.DEFAULT_VIEWPORT_HEIGHT)
-			{
+			if ((iterator.getPosition().y - iterator.getDimension().y) > Constants.DEFAULT_VIEWPORT_HEIGHT) {
 				meteors.removeValue(iterator, true);
 				player.decHealth();
 				destroyes.add(new MeteorDestroy(iterator.getPosition()));
 				Assets.instance.sounds.fire_truck.play();
-				if (player.getHealth() <= 0)
-				{
+				if (player.getHealth() <= 0) {
 					checkWinLose();
 				}
 			}
@@ -189,51 +188,46 @@ public class WorldController implements Disposable, InputProcessor {
 
 	private void checkExplosionFinish(float deltaTime) {
 		// TODO Auto-generated method stub
-		
+
 		Iterator<Explosion> iterators = explosions.iterator();
-		while(iterators.hasNext())
-		{
+		while (iterators.hasNext()) {
 			Explosion iterator = iterators.next();
-			if (iterator.isFinish())
-			{
+			if (iterator.isFinish()) {
 				explosions.removeValue(iterator, true);
-				
-			}
-			else
-			{
+
+			} else {
 				iterator.update(deltaTime);
 			}
 		}
-		
+
 	}
 
 	private void checkMeteoShockwaveCollision() {
 		// TODO Auto-generated method stub
-		
+
 		if (shockwave.isGrowing()) {
 			Iterator<Meteor> iterators = meteors.iterator();
-			
+
 			while (iterators.hasNext()) {
 				Meteor iterator = iterators.next();
-					
-				
-					Vector2 d = new Vector2(shockwave.getPosition().x
-							- iterator.getPosition().x,
-							shockwave.getPosition().y
-									- iterator.getPosition().y);
-					float distance = d.len();
+				// Collision is not correct, it only check the object in
+				// shockwave
 
-					if (distance <= shockwave.getDimension().x / 2) {
-						
-						meteors.removeValue((Meteor) iterator, true);
-						explosions.add(new Explosion(iterator.getPosition()));
-						Assets.instance.sounds.bomb.play();
-						player.addScore(iterator.getScore());
-				
+				Vector2 d = new Vector2(shockwave.getPosition().x
+						- iterator.getPosition().x, shockwave.getPosition().y
+						- iterator.getPosition().y);
+				float distance = d.len();
+
+				if (distance <= shockwave.getDimension().x / 2) {
+
+					meteors.removeValue((Meteor) iterator, true);
+					explosions.add(new Explosion(iterator.getPosition()));
+					Assets.instance.sounds.bomb.play();
+					player.addScore(iterator.getScore());
+
 				}
 			}
-			
-			
+
 		}
 	}
 

@@ -1,17 +1,14 @@
 package com.pearl.main.game;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Disposable;
 import com.pearl.main.game.objects.Background;
-import com.pearl.main.game.objects.Clouds;
 import com.pearl.main.utils.Constants;
 public class WorldRenderer implements Disposable{
 
 	private WorldController controller;
 	private OrthographicCamera camera;
-	private Sprite sprite;
 	private SpriteBatch batch;
 	private Background background;
 	
@@ -31,9 +28,6 @@ public class WorldRenderer implements Disposable{
 		batch = new SpriteBatch();
 		background = new Background();
 	
-		
-		
-		
 	}
 	
 	

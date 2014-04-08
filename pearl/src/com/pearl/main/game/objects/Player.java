@@ -12,6 +12,8 @@ public class Player {
 	private static BitmapFont font;
 	private static Sprite sprite;
 	private static final float scale = 0.5f; 
+	private int health;
+	private int score;
 	
 	public static Player getInstance()
 	{
@@ -22,8 +24,6 @@ public class Player {
 		return instance;
 	}
 	
-	private int health;
-	private int score;
 	
 	private Player()
 	{

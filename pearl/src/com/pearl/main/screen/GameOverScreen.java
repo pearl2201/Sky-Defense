@@ -10,8 +10,7 @@ import com.badlogic.gdx.math.Interpolation;
 import com.pearl.main.game.Assets;
 import com.pearl.main.game.objects.Background;
 import com.pearl.main.screen.transition.ScreenTransition;
-import com.pearl.main.screen.transition.ScreenTransitionFade;
-import com.pearl.main.screen.transition.ScreenTransitionSlice;
+import com.pearl.main.screen.transition.ScreenTransitionSlide;
 import com.pearl.main.utils.Constants;
 
 public class GameOverScreen extends AbstractGameScreen implements InputProcessor{
@@ -101,8 +100,8 @@ public class GameOverScreen extends AbstractGameScreen implements InputProcessor
 		// TODO Auto-generated method stub
 		
 			float duration = 1f;
-			ScreenTransition transition = ScreenTransitionSlice.init(duration, ScreenTransitionSlice.UP_DOWN, 5, Interpolation.linear);
-			game.setScreen(new GameScreen(game), null);
+			ScreenTransition transition = ScreenTransitionSlide.init(duration, ScreenTransitionSlide.UP, true, Interpolation.linear);
+			game.setScreen(new GameScreen(game), transition);
 			background.dispose();
 		
 		return false;

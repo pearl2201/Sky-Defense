@@ -9,6 +9,7 @@ import com.pearl.main.game.Assets;
 import com.pearl.main.utils.Constants;
 
 public class MeteorDestroy extends AbstractGameObject {
+	
 	private Animation destroy;
 	private float stateTime;
 	private boolean finish;
@@ -44,12 +45,10 @@ public class MeteorDestroy extends AbstractGameObject {
 		{
 			finish = true;
 			running = false;
-			Gdx.app.log("Explosion", Float.toString(stateTime));
 		}
 		
 		if (running) {
 			stateTime += deltaTime;
-			Gdx.app.log("Explosion", Float.toString(stateTime));
 			
 		}
 		

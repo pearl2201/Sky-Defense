@@ -1,23 +1,13 @@
 package com.pearl.main;
 
-import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.Gdx;
+
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.Texture.TextureFilter;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Interpolation;
 import com.pearl.main.game.Assets;
 import com.pearl.main.screen.Director;
-import com.pearl.main.screen.GameScreen;
 import com.pearl.main.screen.MenuScreen;
 import com.pearl.main.screen.transition.ScreenTransition;
-import com.pearl.main.screen.transition.ScreenTransitionFade;
-import com.pearl.main.screen.transition.ScreenTransitionSlice;
+import com.pearl.main.screen.transition.ScreenTransitionSlide;
 
 public class Pearl extends Director
 {
@@ -28,7 +18,7 @@ public class Pearl extends Director
 		
 		Assets.instance.init(new AssetManager());
 		float duration = 1f;
-		ScreenTransition transition = ScreenTransitionSlice.init(duration, ScreenTransitionSlice.UP_DOWN, 4, Interpolation.exp10Out); 
+		ScreenTransition transition = ScreenTransitionSlide.init(duration, ScreenTransitionSlide.UP, true, Interpolation.exp10Out); 
 		setScreen(new MenuScreen(this),transition);
 		
 	}

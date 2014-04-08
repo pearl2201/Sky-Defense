@@ -266,7 +266,7 @@ public class Assets implements Disposable, AssetErrorListener {
 	@Override
 	public void error(String fileName, Class type, Throwable throwable) {
 		// TODO Auto-generated method stub
-
+		Gdx.app.log("Assets: ", fileName);
 	}
 
 }

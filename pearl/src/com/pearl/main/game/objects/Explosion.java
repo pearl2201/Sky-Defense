@@ -27,13 +27,8 @@ public class Explosion extends AbstractGameObject {
 		// TODO Auto-generated method stub
 		explosion = Assets.instance.explosion.explosion;
 		
-		Gdx.app.log("Explosion",Float.toString(explosion.animationDuration));
 		stateTime = 0.0f;
 		running = false;
-		finish = false;
-		
-		stateTime =0;
-		running = true;
 		finish = false;
 	}
 
@@ -53,8 +48,6 @@ public class Explosion extends AbstractGameObject {
 			
 		}
 		
-		
-
 	}
 
 	@Override

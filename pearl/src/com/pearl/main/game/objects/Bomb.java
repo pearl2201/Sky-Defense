@@ -1,22 +1,21 @@
 package com.pearl.main.game.objects;
 
-import com.badlogic.gdx.Gdx;
+
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
 import com.pearl.main.game.Assets;
 
 public class Bomb extends AbstractGameObject {
 
-	private Sprite bombSprite;
-	private Sprite sparkleSprite;
-	private Sprite haloSprite;
+	private Sprite bombS;
+	private Sprite sparkleS;
+	private Sprite haloS;
 	private float maxScale;
 	private float minScale;
 	private boolean visible;
-	private float duration = 100f;
-	private float distance;
-	private float rotationSparkle;
+	private float duration = 100f; // time bomb from minSize to maxSize
+	private float distance;// the step size raise in 1f; 
+	private float rotationSparkle; // sparkle, halo rotatiton at orgin of it
 	
 	public Bomb()
 	{
@@ -27,9 +26,9 @@ public class Bomb extends AbstractGameObject {
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
-		bombSprite = new Sprite(Assets.instance.bomb.bomb);
-		sparkleSprite = new Sprite(Assets.instance.bomb.sparkle);
-		haloSprite = new Sprite(Assets.instance.bomb.halo);
+		bombS = new Sprite(Assets.instance.bomb.bomb);
+		sparkleS = new Sprite(Assets.instance.bomb.sparkle);
+		haloS = new Sprite(Assets.instance.bomb.halo);
 		visible = false;
 		maxScale = 0.3f;
 		minScale = 0.05f;
@@ -84,10 +83,10 @@ public class Bomb extends AbstractGameObject {
 		// TODO Auto-generated method stub
 		if (visible)
 		{
-			batch.draw(bombSprite, position.x - bombSprite.getWidth()*scale/2, position.y - bombSprite.getHeight()*scale/2, bombSprite.getWidth()*scale, bombSprite.getHeight()*scale);
+			batch.draw(bombS, position.x - bombS.getWidth()*scale/2, position.y - bombS.getHeight()*scale/2, bombS.getWidth()*scale, bombS.getHeight()*scale);
 			
-			batch.draw(sparkleSprite, position.x - sparkleSprite.getWidth()/2 + bombSprite.getWidth()*scale/6, position.y - sparkleSprite.getHeight()/2 + bombSprite.getHeight()*scale/4,sparkleSprite.getWidth()/2, sparkleSprite.getHeight()/2, sparkleSprite.getWidth(), sparkleSprite.getHeight(), scale, scale, rotationSparkle);
-			batch.draw(haloSprite, position.x - haloSprite.getWidth()/2 - bombSprite.getWidth()*scale/10, position.y - haloSprite.getHeight()/2 - bombSprite.getWidth()*scale/10,haloSprite.getWidth()/2, haloSprite.getHeight()/2, haloSprite.getWidth(), haloSprite.getHeight(), scale, scale, rotationSparkle);
+			batch.draw(sparkleS, position.x - sparkleS.getWidth()/2 + bombS.getWidth()*scale/6, position.y - sparkleS.getHeight()/2 + bombS.getHeight()*scale/4,sparkleS.getWidth()/2, sparkleS.getHeight()/2, sparkleS.getWidth(), sparkleS.getHeight(), scale, scale, rotationSparkle);
+			batch.draw(haloS, position.x - haloS.getWidth()/2 - bombS.getWidth()*scale/10, position.y - haloS.getHeight()/2 - bombS.getWidth()*scale/10,haloS.getWidth()/2, haloS.getHeight()/2, haloS.getWidth(), haloS.getHeight(), scale, scale, rotationSparkle);
 			
 			
 		}
